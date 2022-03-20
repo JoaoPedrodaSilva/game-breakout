@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Breakout</title>
+</head>
+<body>
+    <div id="iframe-container">
+
+        <div id="initial-screen">
+            <h1 id="title">BREAKOUT!</h1>
+            <h2 id="subtitle">Select your difficult</h2>
+            <button id="easy" class="difficult-button">Easy</button>
+            <button id="normal" class="difficult-button">Normal</button>
+            <button id="hard" class="difficult-button">Hard</button>
+        </div>
+
+        <div id="get-ready-screen">
+            <h1 id="get-ready"></h1>
+        </div>
+
+        <div id="game-screen">
+            <div id="score-space">
+                <div>Score: </div>
+                <div id="score"></div>
+            </div>
+        </div>
+
+        <div id="post-game-screen">            
+            <h1 id="final-score"></h1>
+            <h1 id="message"></h1>
+            <button id="play-again">Play Again!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
