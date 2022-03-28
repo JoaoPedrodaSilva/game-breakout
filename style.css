@@ -7,127 +7,299 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#iframe-container {    
+.iframe-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 600px;
     height: 600px;
+    border: solid red 1px;
     background-color: white;
 }
 
-#initial-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-    #title {
-        font-size: 4rem;
-    }
-
-    #subtitle {
-        font-size: 2.5rem;
-    }
-
-    .difficult-button {
-        font-size: 2.5rem;
-        margin: 5%;
-        padding: 8%;
-        width: 50%;
-        border-radius: 10%;
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
-    }
-
-        #easy {
-            background-color: lightgreen;
-        }
-
-        #normal {
-            background-color: #e4eb1c;
-        }
-
-        #hard {
-            background-color: #d92c21;            
-        }
-
-#get-ready-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-    #get-ready {
-        font-size: 8rem;
-    }
-
-#game-screen {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    width: 95%;
-    height: 95%;
-    border: solid black 1px;
-}
-
-    #score-space {
+    .initial-screen {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;        
+        width: 95%;
+        height: 95%;
+    }
+
+        .title {
+            font-size: 4rem;
+        }
+
+        .subtitle {
+            font-size: 2.5rem;
+        }
+
+        .difficult-button {
+            font-size: 4rem;
+            margin: 1%;
+            padding: 5%;
+            width: 50%;
+            height: 20%;
+            border-radius: 10%;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+            #easy {
+                background-color: lightgreen;
+            }
+
+            #normal {
+                background-color: #e4eb1c;
+            }
+
+            #hard {
+                background-color: #d92c21;            
+            }
+
+    .get-ready-screen {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: 10%;
-        font-size: 3rem;
-        border-bottom: solid 1px;
     }
 
-    .ball {
-        position: absolute;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        background-color: red;
-    }    
-    
-    .block {
-        position: absolute;
-        width: 100px;
-        height: 20px;
-        margin: 1%;
-        border: solid 1px;
-        background-color: aquamarine;
-    }    
-
-
-    .user {
-        position: absolute;
-        width: 100px;
-        height: 20px;
-        border: solid 1px;
-        background-color: pink;
+        .get-ready-display {
+            font-size: 8rem;
     }
 
-#post-game-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    width: 95%;
-    height: 90%;
-}
+    .game-screen {        
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        height: 95%;
+        border: solid 1px;
+    }
 
-        #message, #final-score {
-            font-size: 3rem;
+        .game {
+            position: relative;
+            width: 100%;
+            height: 80%;
         }
 
-        #play-again {
+            .block-1 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 20px;
+                bottom: 410px;
+            }
+
+            .block-2 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 130px;
+                bottom: 410px;
+            }
+
+            .block-3 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 240px;
+                bottom: 410px;
+            }
+
+            .block-4 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 350px;
+                bottom: 410px;
+            }
+
+            .block-5 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 460px;
+                bottom: 410px;
+            }
+
+            .block-6 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 20px;
+                bottom: 370px;
+            }
+
+            .block-7 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 130px;
+                bottom: 370px;
+            }
+
+            .block-8 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 240px;
+                bottom: 370px;
+            }
+
+            .block-9 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 350px;
+                bottom: 370px;
+            }
+
+            .block-10 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 460px;
+                bottom: 370px;
+            }
+
+            .block-11 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 20px;
+                bottom: 330px;
+            }
+
+            .block-12 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 130px;
+                bottom: 330px;
+            }
+
+            .block-13 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 240px;
+                bottom: 330px;
+            }
+
+            .block-14 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 350px;
+                bottom: 330px;
+            }
+
+            .block-15 {
+                position: absolute;
+                background-color: blue;
+                width: 90px;
+                height: 25px;
+                left: 460px;
+                bottom: 330px;
+            }
+
+            .user {
+                position: absolute;
+                background-color: green;
+                width: 110px;
+                height: 25px;
+                left: 230px;
+                bottom: 10px;
+            }
+
+            .ball {
+                position: absolute;
+                background-color: red;
+                width: 20px;
+                height: 20px;
+                left: 280px;
+                bottom: 45px;
+                border-radius: 50%
+            }
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20%;
+            border-top: solid black 1px;
+        }
+
+            .controls {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                width: 50%;
+                height: 100%;
+            }
+
+                .control-button {
+                    font-size: 8rem;
+                    width: 50%;
+                    height: 100%;
+                }
+
+            .scores {
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                width: 50%;
+                height: 100%;
+            }
+
+                .score-label {
+                    font-size: 5rem;
+                    text-align: center;
+                }
+
+                .score {
+                    font-size: 5rem;
+                    font-weight: 900;
+                    text-align: center;
+                }
+
+
+    .post-game-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        height: 95%;
+    }
+
+        .message, .final-score {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .play-again-button {
             font-size: 3rem;
             margin: 5%;
             padding: 8%;
@@ -138,7 +310,7 @@ body {
             color: white;
         }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     #iframe-container {
         width: 560px;
         height: 560px;
@@ -148,7 +320,7 @@ body {
         font-size: 7px;
     }
 }
-
+    
 @media (max-width: 768px) {
     #iframe-container {
         width: 420px;
@@ -169,8 +341,8 @@ body {
 
 @media (max-width: 425px) {
     #iframe-container {
-        width: 260px;
-        height: 260px;
+        width: 240px;
+        height: 240px;
     }
 
     html {
