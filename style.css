@@ -17,7 +17,6 @@ body {
     justify-content: center;
     width: 600px;
     height: 600px;
-    border: solid red 1px;
     background-color: white;
 }
 
@@ -88,154 +87,154 @@ body {
             .block-1 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 20px;
-                bottom: 410px;
+                width: 15%;
+                height: 4.5%;
+                left: 4.5%;
+                bottom: 90%;
             }
 
             .block-2 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 130px;
-                bottom: 410px;
+                width: 15%;
+                height: 4.5%;
+                left: 23.5%;
+                bottom: 90%;
             }
 
             .block-3 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 240px;
-                bottom: 410px;
+                width: 15%;
+                height: 4.5%;
+                left: 42.5%;
+                bottom: 90%;
             }
 
             .block-4 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 350px;
-                bottom: 410px;
+                width: 15%;
+                height: 4.5%;
+                left: 61.5%;
+                bottom: 90%;
             }
 
             .block-5 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 460px;
-                bottom: 410px;
+                width: 15%;
+                height: 4.5%;
+                left: 80.5%;
+                bottom: 90%;
             }
 
             .block-6 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 20px;
-                bottom: 370px;
+                width: 15%;
+                height: 4.5%;
+                left:  4.5%;
+                bottom: 81%;
             }
 
             .block-7 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 130px;
-                bottom: 370px;
+                width: 15%;
+                height: 4.5%;
+                left: 23.5%;
+                bottom: 81%;
             }
 
             .block-8 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 240px;
-                bottom: 370px;
+                width: 15%;
+                height: 4.5%;
+                left: 42.5%;
+                bottom: 81%;
             }
 
             .block-9 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 350px;
-                bottom: 370px;
+                width: 15%;
+                height: 4.5%;
+                left: 61.5%;
+                bottom: 81%;
             }
 
             .block-10 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 460px;
-                bottom: 370px;
+                width: 15%;
+                height: 4.5%;
+                left: 80.5%;
+                bottom: 81%;
             }
 
             .block-11 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 20px;
-                bottom: 330px;
+                width: 15%;
+                height: 4.5%;
+                left:  4.5%;
+                bottom: 72%;
             }
 
             .block-12 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 130px;
-                bottom: 330px;
+                width: 15%;
+                height: 4.5%;
+                left: 23.5%;
+                bottom: 72%;
             }
 
             .block-13 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 240px;
-                bottom: 330px;
+                width: 15%;
+                height: 4.5%;
+                left:42.5%;
+                bottom: 72%;
             }
 
             .block-14 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 350px;
-                bottom: 330px;
+                width: 15%;
+                height: 4.5%;
+                left: 61.5%;
+                bottom: 72%;
             }
 
             .block-15 {
                 position: absolute;
                 background-color: blue;
-                width: 90px;
-                height: 25px;
-                left: 460px;
-                bottom: 330px;
+                width: 15%;
+                height: 4.5%;
+                left: 80.5%;
+                bottom: 72%;
             }
 
             .user {
                 position: absolute;
                 background-color: green;
-                width: 110px;
-                height: 25px;
-                left: 230px;
-                bottom: 10px;
+                width: 20%;
+                height: 5%;
+                left: 40%;
+                bottom: 2%;
             }
 
             .ball {
                 position: absolute;
                 background-color: red;
-                width: 20px;
-                height: 20px;
-                left: 280px;
-                bottom: 45px;
+                width: 3.5%;
+                height: 4.5%;
+                left: 49%;
+                bottom: 10%;
                 border-radius: 50%
             }
 
@@ -311,7 +310,7 @@ body {
         }
 
 @media (max-width: 1024px) {
-    #iframe-container {
+    .iframe-container {
         width: 560px;
         height: 560px;
     }
@@ -322,14 +321,14 @@ body {
 }
     
 @media (max-width: 768px) {
-    #iframe-container {
+    .iframe-container {
         width: 420px;
         height: 420px;
     }
 }
 
 @media (max-width: 576px) {
-    #iframe-container {
+    .iframe-container {
         width: 350px;
         height: 350px;
     }
@@ -340,7 +339,7 @@ body {
 }
 
 @media (max-width: 425px) {
-    #iframe-container {
+    .iframe-container {
         width: 240px;
         height: 240px;
     }

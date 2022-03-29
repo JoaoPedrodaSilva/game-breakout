@@ -1,3 +1,10 @@
+//preventig scroll screen with keyboard
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 //initial screen
 const initialScreen = document.querySelector('.initial-screen')
 const anyDifficultButton = document.querySelectorAll('.difficult-button')
@@ -9,9 +16,10 @@ const getReadyDisplay = document.querySelector('.get-ready-display')
 
 //game screen
 const gameScreen = document.querySelector('.game-screen')
-    //screen in percentage
-    const screenTopWall = 455
-    const screenRightWall = 570
+const game = document.querySelector('.game')
+    //screen
+    const screenTopWall = 100
+    const screenRightWall = 100
     const screenBottomWall = 0
     const screenLeftWall = 0   
     //blocks
@@ -84,12 +92,14 @@ const startGame = () => {
     resetInitialParameters()
     document.addEventListener('keydown', moveUserByKeyboard)
     if (difficult == 'easy') {
-        timer = setInterval(moveBall, 50)   
-    } else if (difficult == 'normal') {
         timer = setInterval(moveBall, 25)   
+    } else if (difficult == 'normal') {
+        timer = setInterval(moveBall, 15)
     } else {
-        timer = setInterval(moveBall, 10)   
-    }   
+        timer = setInterval(moveBall, 5)   
+    }
+    //this event listener is for test purposes only
+    // document.addEventListener('keydown', moveBallByKeyboard)
 }
 
 const resetInitialParameters = () => {
@@ -98,42 +108,45 @@ const resetInitialParameters = () => {
     gameScreen.style.display = 'flex'
     
     //block settings
-    blockWidth = 90
-    blockHeight = 25
+    blockWidth = 15
+    blockHeight = 4.5
     allBlocksArray = Array.from(allBlocks)
     allBlocksArray.forEach(block => block.style.display = 'block')
     
     
     //user settings
-    userWidth = 110
-    userHeight = 25
-    userBottomWall = 10
-    userTopWall = userBottomWall + userHeight
-    userLeftWall = 230
+    userWidth = 20
+    userHeight = 5
+    userLeftWall = 40
     userRightWall = userLeftWall + userWidth
-    userDisplay.style.left = userLeftWall + 'px'
+    userBottomWall = 2
+    userTopWall = userBottomWall + userHeight
+    
+    userDisplay.style.left = userLeftWall + '%'
     
     //ball settings     
     ballDiameter = 20
-    ballLeftWall = 280
-    ballBottomWall = 45
-    ballTopWall = ballBottomWall + ballDiameter        
-    ballRightWall = ballLeftWall + ballDiameter
-    ballDisplay.style.left = ballLeftWall + 'px'
-    ballDisplay.style.bottom = ballBottomWall + 'px'
+    ballWidth = 3.5
+    ballHeight = 4.5
+    ballLeftWall = 49
+    ballBottomWall = 10
+    ballTopWall = ballBottomWall + ballHeight        
+    ballRightWall = ballLeftWall + ballWidth
+    ballDisplay.style.left = ballLeftWall + '%'
+    ballDisplay.style.bottom = ballBottomWall + '%'
         //make ball direction random at the start of the game
         if (Math.floor(Math.random() * 12) >= 9) {
-            ballXDirection = -5
-            ballYDirection = 5
+            ballXDirection = -0.5
+            ballYDirection = 0.5
         } else if (Math.floor(Math.random() * 12) >= 6) {
-            ballXDirection = -5
-            ballYDirection = -5
+            ballXDirection = -0.5
+            ballYDirection = -0.5
         } else if (Math.floor(Math.random() * 12) >= 3) {
-            ballXDirection = 5
-            ballYDirection = -5
+            ballXDirection = 0.5
+            ballYDirection = -0.5
         } else {
-            ballXDirection = 5
-            ballYDirection = 5
+            ballXDirection = 0.5
+            ballYDirection = 0.5
         }
     
     //overall settings
@@ -147,14 +160,15 @@ const resetInitialParameters = () => {
 
 const moveUserByKeyboard = (e) => {   
     if (e.key == 'ArrowLeft' && userLeftWall != screenLeftWall) {
-        userLeftWall -= 23
-        userRightWall -= 23
-        userDisplay.style.left = userLeftWall + 'px'
+        userLeftWall -= 5
+        userRightWall -= 5
+        userDisplay.style.left = userLeftWall + '%'
     } else if (e.key =='ArrowRight' && userRightWall != screenRightWall) {
-        userLeftWall += 23
-        userRightWall += 23
-        userDisplay.style.left = userLeftWall + 'px'
+        userLeftWall += 5
+        userRightWall += 5
+        userDisplay.style.left = userLeftWall + '%'
     }
+    //not sure these collision checkers are working on the user movement
     userTopWallCollision()
     userLeftWallCollision()
     userRightWallCollision()
@@ -162,17 +176,18 @@ const moveUserByKeyboard = (e) => {
 
 const moveUserByClick = (direction) => {
     if (direction == 'left' && userLeftWall != screenLeftWall) {
-        userLeftWall -= 23
-        userRightWall -= 23
-        userDisplay.style.left = userLeftWall + 'px'
+        userLeftWall -= 5
+        userRightWall -= 5
+        userDisplay.style.left = userLeftWall + '%'
     } else if (direction == 'right' && userRightWall != screenRightWall) {
-        userLeftWall += 23
-        userRightWall += 23
-        userDisplay.style.left = userLeftWall + 'px'
+        userLeftWall += 5
+        userRightWall += 5
+        userDisplay.style.left = userLeftWall + '%'
     }
+    //not sure these collision checkers are working on the user movement
     userTopWallCollision()
     userLeftWallCollision()
-    userRightWallCollision()
+    userRightWallCollision()    
 }
 
 const moveBall = () => {        
@@ -180,10 +195,21 @@ const moveBall = () => {
     ballBottomWall += ballYDirection
     ballTopWall += ballYDirection
     ballRightWall += ballXDirection
-    ballDisplay.style.left = ballLeftWall + "px"
-    ballDisplay.style.bottom = ballBottomWall + "px"
+    ballDisplay.style.left = ballLeftWall + "%"
+    ballDisplay.style.bottom = ballBottomWall + "%"
     checkAllCollisions()        
 } 
+
+//this function is for test purposes only
+// const moveBallByKeyboard = () => {    
+//         ballLeftWall += ballXDirection
+//         ballBottomWall += ballYDirection
+//         ballTopWall += ballYDirection
+//         ballRightWall += ballXDirection
+//         ballDisplay.style.left = ballLeftWall + "%"
+//         ballDisplay.style.bottom = ballBottomWall + "%"
+//         checkAllCollisions()
+// } 
 
 const checkAllCollisions = () => {
     screenTopWallCollision()
@@ -314,9 +340,16 @@ const userLeftWallCollision = () => {
 }
 const blockTopWallCollision = () => {
     allBlocksArray.forEach(block => {
-        //block settings            
-        blockBottomWall = Number(window.getComputedStyle(block, null).bottom.replace('px', ''))
-        blockLeftWall = Number(window.getComputedStyle(block, null).left.replace('px', ''))
+        //block settings
+
+        // this craziness parses pixels to percentage in a responsive way, probably could make it better
+        blockBottomWall = (Math.ceil(Number(window.getComputedStyle(block, null).bottom.replace('px', '')))/window.getComputedStyle(game, null).height.replace('px', ''))*100
+        blockBottomWall = blockBottomWall.toFixed()
+        blockLeftWall = (Math.ceil(Number(window.getComputedStyle(block, null).left.replace('px', '')))/window.getComputedStyle(game, null).width.replace('px', ''))*100
+        blockLeftWall = blockLeftWall.toFixed()
+        blockLeftWall = blockLeftWall - 0.5
+        //after this parsing, the ball/block collision calculation can be done in any gameScreen Height and Width
+
         blockTopWall = blockBottomWall + blockHeight
         blockRightWall = blockLeftWall + blockWidth
 
@@ -350,9 +383,16 @@ const blockTopWallCollision = () => {
 }
 const blockRightWallCollision = () => {
     allBlocksArray.forEach(block => {
-        //block settings            
-        blockBottomWall = Number(window.getComputedStyle(block, null).bottom.replace('px', ''))
-        blockLeftWall = Number(window.getComputedStyle(block, null).left.replace('px', ''))
+        //block settings
+
+        // this craziness parses pixels to percentage in a responsive way, probably could make it better
+        blockBottomWall = (Math.ceil(Number(window.getComputedStyle(block, null).bottom.replace('px', '')))/window.getComputedStyle(game, null).height.replace('px', ''))*100
+        blockBottomWall = blockBottomWall.toFixed()
+        blockLeftWall = (Math.ceil(Number(window.getComputedStyle(block, null).left.replace('px', '')))/window.getComputedStyle(game, null).width.replace('px', ''))*100
+        blockLeftWall = blockLeftWall.toFixed()
+        blockLeftWall = blockLeftWall - 0.5
+        //after this parsing, the ball/block collision calculation can be done in any gameScreen Height and Width
+
         blockTopWall = blockBottomWall + blockHeight
         blockRightWall = blockLeftWall + blockWidth
 
@@ -386,9 +426,16 @@ const blockRightWallCollision = () => {
 }
 const blockBottomWallCollision = () => {
     allBlocksArray.forEach(block => {
-        //block settings            
-        blockBottomWall = Number(window.getComputedStyle(block, null).bottom.replace('px', ''))
-        blockLeftWall = Number(window.getComputedStyle(block, null).left.replace('px', ''))
+        //block settings
+
+        // this craziness parses pixels to percentage in a responsive way, probably could make it better
+        blockBottomWall = (Math.ceil(Number(window.getComputedStyle(block, null).bottom.replace('px', '')))/window.getComputedStyle(game, null).height.replace('px', ''))*100
+        blockBottomWall = blockBottomWall.toFixed()
+        blockLeftWall = (Math.ceil(Number(window.getComputedStyle(block, null).left.replace('px', '')))/window.getComputedStyle(game, null).width.replace('px', ''))*100
+        blockLeftWall = blockLeftWall.toFixed()
+        blockLeftWall = blockLeftWall - 0.5
+        //after this parsing, the ball/block collision calculation can be done in any gameScreen Height and Width
+
         blockTopWall = blockBottomWall + blockHeight
         blockRightWall = blockLeftWall + blockWidth
         
@@ -422,9 +469,16 @@ const blockBottomWallCollision = () => {
 }
 const blockLeftWallCollision = () => {
     allBlocksArray.forEach(block => {
-        //block settings            
-        blockBottomWall = Number(window.getComputedStyle(block, null).bottom.replace('px', ''))
-        blockLeftWall = Number(window.getComputedStyle(block, null).left.replace('px', ''))
+        //block settings
+
+        // this craziness parses pixels to percentage in a responsive way, probably could make it better
+        blockBottomWall = (Math.ceil(Number(window.getComputedStyle(block, null).bottom.replace('px', '')))/window.getComputedStyle(game, null).height.replace('px', ''))*100
+        blockBottomWall = blockBottomWall.toFixed()
+        blockLeftWall = (Math.ceil(Number(window.getComputedStyle(block, null).left.replace('px', '')))/window.getComputedStyle(game, null).width.replace('px', ''))*100
+        blockLeftWall = blockLeftWall.toFixed()
+        blockLeftWall = blockLeftWall - 0.5
+        //after this parsing, the ball/block collision calculation can be done in any gameScreen Height and Width
+
         blockTopWall = blockBottomWall + blockHeight
         blockRightWall = blockLeftWall + blockWidth
 
@@ -461,38 +515,38 @@ const changeDirection = (xDirection, yDirection) => {
 
     //COUNTER CLOCKWISE
     if (xDirection == 'left' && yDirection == 'up') {            
-        ballXDirection = -5 //change x direction to left
-        ballYDirection = 5  //change y direction to up
+        ballXDirection = -0.5 //change x direction to left
+        ballYDirection = 0.5  //change y direction to up
     }
     else if (xDirection == 'left' && yDirection == 'down') {            
-        ballXDirection = -5 //change x direction to left
-        ballYDirection = -5  //change y direction to down
+        ballXDirection = -0.5 //change x direction to left
+        ballYDirection = -0.5  //change y direction to down
     }
     else if (xDirection == 'right' && yDirection == 'down') {            
-        ballXDirection = 5 //change x direction to right
-        ballYDirection = -5  //change y direction to down
+        ballXDirection = 0.5 //change x direction to right
+        ballYDirection = -0.5  //change y direction to down
     }
     else if (xDirection == 'right' && yDirection == 'up') {            
-        ballXDirection = 5 //change x direction to right
-        ballYDirection = 5  //change y direction to up
+        ballXDirection = 0.5 //change x direction to right
+        ballYDirection = 0.5  //change y direction to up
     }
 
     //CLOCKWISE
     else if (xDirection == 'right' && yDirection == 'up') {            
-        ballXDirection = 5 //change x direction to right
-        ballYDirection = 5  //change y direction to up
+        ballXDirection = 0.5 //change x direction to right
+        ballYDirection = 0.5  //change y direction to up
     }
     else if (xDirection == 'right' && yDirection == 'down') {            
-        ballXDirection = 5 //change x direction to right
-        ballYDirection = -5  //change y direction to down
+        ballXDirection = 0.5 //change x direction to right
+        ballYDirection = -0.5  //change y direction to down
     }
     else if (xDirection == 'left' && yDirection == 'down') {            
-        ballXDirection = -5 //change x direction to left
-        ballYDirection = -5  //change y direction to down
+        ballXDirection = -0.5 //change x direction to left
+        ballYDirection = -0.5  //change y direction to down
     }
     else if (xDirection == 'left' && yDirection == 'up') {            
-        ballXDirection = -5 //change x direction to left
-        ballYDirection = 5  //change y direction to up
+        ballXDirection = -0.5 //change x direction to left
+        ballYDirection = 0.5  //change y direction to up
     }
 }
 
@@ -511,6 +565,7 @@ const checkWin = () => {
         gameScreen.style.display = 'none'
         postGameScreen.style.display = 'flex'    
         messageDisplay.innerHTML = 'Nice! You won!'
+        messageDisplay.style.color = 'blue'
         playAgain()
     }
 }
@@ -520,7 +575,7 @@ const gameOver = () => {
     document.removeEventListener('keydown', moveUserByKeyboard)
     gameScreen.style.display = 'none'
     postGameScreen.style.display = 'flex'    
-    messageDisplay.innerHTML = 'Oh no...you lost, try again!'
+    messageDisplay.innerHTML = 'Oh no...you lost.<br>Try again!'
     messageDisplay.style.color = 'red'
     finalScoreDisplay.innerHTML = `Final score: ${score}`
     playAgain()
